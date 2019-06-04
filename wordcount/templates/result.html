@@ -1,14 +1,47 @@
 {% extends 'base.html' %}
-
 {% block content %}
-<h1>Your word's count is {{ word_count }}</h1>
+<div>
+    <h1>Result</h1>
+    
+</div>
 
-<a href="{% url 'home' %}">Go home</a>
-
-<h2>Your text : {{ full }}</h2>
-
-<h2>Word count :</h2>
-{% for word, count in dictionary %}
-    <p>{{ word }} : {{ count }}</p>
-{% endfor %}
+<div class="card">
+    <div class="card text-center">
+        <div class="card-header">
+            <h1>입력한 글 :</h1>
+        </div>
+        <div class="card-body">
+            <h3>{{ full }}</h3>
+        </div>
+    </div>
+    <div class="card text-center">
+        <div class="card-header">
+            <h1>단어 수 :</h1>
+        </div>
+        <div class="card-body">
+            <table style="text-align:center">
+                <tbody>
+                    {% for word, count in dictionary %}
+                        <tr>
+                            <td><h3>{{ word }}</h3></td>
+                            <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td>
+                            <td><h3>{{ count }}</h3></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card text-center">
+        <div class="card-header">
+            <h1>입력한 단어의 수</h1>
+        </div>
+        <div class="card-body">
+            <h1>{{ word_count }}개</h1>
+        </div>
+        <div class="body">
+            <a href="{% url 'home' %}" class="btn btn-primary">Go home</a>
+        </div>
+    </div>
+</div>
 {% endblock %}

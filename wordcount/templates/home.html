@@ -1,12 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>word count</h1>
+    <h1>Word Count</h1>
 
-    <a href="{% url 'about' %}">About</a>
     <br>
-    <form action="{% url 'result' %}">
-        <textarea name="fulltext" cols="30" rows="10"></textarea><br>
-        <input type="submit" value="count">
-    </form>
+    
+    <div class="content">
+        <p style="">글을 입력하세요.</p>
+        <div class="text">
+            <form action="{% url 'result' %}">
+                <textarea name="fulltext" cols="30" rows="10"></textarea><br>
+                <input type="submit" value="count">
+            </form>
+        </div>
+    </div>
+    
+    
 {% endblock %}
